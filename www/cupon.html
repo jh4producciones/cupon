@@ -40,25 +40,23 @@
                     
                <div class="list form">
 
-               		<!-- NOmbre del Cupon -->
-                    <label class="item item-input row">
-                        <span class="input-label col col-20"><img src="img/NuevoCuponManual_1.png" class="icononuevo"></span>
-                        <input type="text"
-                               placeholder="Nombre del cupón"
-                               name="name"
-                               ng-model="coupon_name"
-                               class="cupon" required>
-                    </label>
-
                		<!-- Codigo del Cupon -->
                     <label class="item item-input row">
-                        <span class="input-label col col-20"><img src="img/NuevoCuponManual_9.png" class="icononuevo"></span>
+                        <span class="input-label col col-5"><img src="img/NuevoCuponManual_9.png" class="icononuevo"></span>
+						<span class="input-label col col-5"><a href="" ng-click="leerCodigo()" class="item item-icon-center" ><img src="img/CouponMenu_2.png" class="icononuevo"> 
+						<p align="center" style="color:#000; font-size:13px;">
+                        Escanear cupón</p>
+						</a> </span>
+						
+						
+					
                         <input type="text"
                                
                                name="code"
                                ng-model="coupon_code"
                                class="cupon" required>
                     </label>
+					
 
                		<!-- Descuento del Cupon -->
 
@@ -97,11 +95,21 @@
                     <label class="item item-input row"
                       ng-show="show_value">
                         <span class="input-label col col-20"><img src="img/NuevoCuponManual_2.png" class="icononuevo"></span>
+						
+						<span class="input-label col col-8">Tipo de descuento:
+                        <select class="col-70"
+                        	name="typed"
+                        	ng-model="coupon_type">
+							<option value="proc">%</option>
+							<option value="valor">Valor</option>
+                        </select>
+						
                         <input type="number"
-                               placeholder="Valor de descuento"
+                               placeholder="Descuento"
                                name="discount"
                                ng-model="coupon_discount_v"
                                class="cupon col" required>
+					    </span>
                     </label>
 
                   <!-- Cantidad de cupones -->
@@ -167,8 +175,8 @@
                         <select class="col col-70"
                         	name="type"
                         	ng-model="coupon_type">
-							<option value="digital">Digital</option>
-							<option value="fisico">Físico</option>
+							<option value="fabricante">Cupón de Fabricante</option>
+							<option value="tienda">Cupón de Tienda</option>
                         </select>
                                 
                      </label>
