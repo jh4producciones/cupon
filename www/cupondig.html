@@ -19,9 +19,7 @@
     
     <script src="lib/ngCordova/dist/ng-cordova.js"></script>
     <script src="cordova.js"></script>
-      <!--librerias para la conexión con facebook-->
-      <script src="js/openfb.js"></script>
-      <script src="js/ngopenfb.js"></script>
+
     <!-- your app's js -->
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
@@ -30,7 +28,7 @@
   <body ng-app="starter">
       <div class="bar bar-header bar-orange">
         <a class="button icon-left ion-ios-arrow-thin-left button-clear" style="color:#fff;" href="principal.html"></a>
-        <h1 class="title" style="color:#FFF;">Añadir cupón manualmente</h1>
+        <h1 class="title" style="color:#FFF;">Añadir Cupón manualmente</h1>
       </div>
      <ion-pane>
       <ion-content style="text-align: center;" ng-controller="AppCtrl">
@@ -40,23 +38,23 @@
                     
                <div class="list form">
 
+               		
+
                		<!-- Codigo del Cupon -->
                     <label class="item item-input row">
-                        <span class="input-label col col-5"><img src="img/NuevoCuponManual_9.png" class="icononuevo"></span>
-						<span class="input-label col col-5"><a href="" ng-click="leerCodigo()" class="item item-icon-center" ><img src="img/CouponMenu_2.png" class="icononuevo"> 
-						<p align="center" style="color:#000; font-size:13px;">
-                        Escanear cupón</p>
-						</a> </span>
-						
-						
 					
+                       <span class="input-label col col-5"><img src="img/NuevoCuponManual_9.png" class="icononuevo"></span>
+						<span class="input-label col col-5"><a href="" ng-click="buscar()" class="item item-icon-center" ><img src="img/CouponMenu_10.png" class="icononuevo"> 
+						<p align="center" style="color:#000; font-size:13px;">
+                        Buscar Cupon en el móvil</p>
+						</a> </span>	
                         <input type="text"
                                
                                name="code"
                                ng-model="coupon_code"
                                class="cupon" required>
+						   
                     </label>
-					
 
                		<!-- Descuento del Cupon -->
 
@@ -182,7 +180,7 @@
                      </label>
                     <input type="hidden"
                                placeholder="Tienda"
-                               value="fisico" 
+                               value="tienda" 
                                name="type"
                                 ng-model="data.type"
                                class="cupon">
