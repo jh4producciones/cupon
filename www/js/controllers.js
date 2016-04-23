@@ -300,20 +300,27 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngOpenFB'])
 
     //window.location = "cargando.html";
 
-    var link = 'http://icreastudio.com/couponthego/login.php';
-    
+   //var link = 'http://icreastudio.com/couponthego/login.php';
+   // var link = 'http://jh4producciones.com.ve/CouponTheGo/pruebaSlim/autenticar';
+    var link = 'http://localhost/pruebaSlim/autenticar';
+
+
     $http.post(link, {
-      "email" : $scope.login.email, 
+      "email" : $scope.login.email,
       "pass" : $scope.login.pass
       
     }).then(function (res){
         if (res.data.success == 1){
+
+          alert(res.data.email);
+          console.log("hola")
           // Guardando el id del usuario
-          window.localStorage.setItem( 'id_user', JSON.stringify(res.data.id));
+         // window.localStorage.setItem( 'id_user', JSON.stringify(res.data.id));
           window.location = "principal.html";
         }
         else{
           alert(res.data.message);
+          console.log("error")
 
           $scope.model_progress = false;
         }
@@ -433,7 +440,8 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngOpenFB'])
         //window.location = "cargando.html";
 
         if ($scope.create_pass == $scope.create_pass2){
-          var link = 'http://localhost/pruebaSlim/crearcuenta';
+          //var link = 'http://localhost/pruebaSlim/crearcuenta';
+         var link = 'http://www.jh4producciones.com.ve/CouponTheGo/pruebaSlim/crearcuenta';
 
           $http.post(link, {
             "name" : $scope.create.name,
@@ -441,17 +449,20 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngOpenFB'])
             "pass" : $scope.create.pass
 
           }).then(function (res){
-            if (res.data.success == 1){
+            if (res.data.success == true){
 
+              console.log(res.data)
+              console.log(res.data.success)
               // Guardando el mensaje del usuario
               window.localStorage.setItem( 'mensaje', JSON.stringify(res.data.mensaje));
-              alert(res.data.message);
+             alert(JSON.stringify(res.data.mensaje));
 
-            // $state.go('api.profile');
               window.location = "principal.html";
             }
             else{
-              alert(res.data.message);
+              alert("no entro")//JSON.stringify(res.data.message));
+              console.log(res.data)
+              console.log(res.data.success)
 
               $scope.model_progress = false;
             }
