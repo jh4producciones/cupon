@@ -121,6 +121,44 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngOpenFB'])
     }
   };
 
+      $scope.agregarTarjetaLocal = function(){
+
+        if ($scope.coupon_ > 0){
+          $scope.cupones.push({
+            name : $scope.coupon_name,
+            code : $scope.coupon_code,
+            type_discount : '0',//$scope.coupon_type_discount,
+            discount_v : $scope.coupon_discount_v,
+            discount_p : '0',//$scope.coupon_discount_p,
+            quantity : $scope.coupon_quantity,
+            due_date : $scope.coupon_due_date,
+            description : $scope.coupon_description,
+            store_id : $scope.coupon_store_id,
+            type : $scope.coupon_type,
+            usado : false
+          });
+          $scope.coupon_name = '';
+          $scope.coupon_code = '';
+          $scope.coupon_discount_p = '';
+          $scope.coupon_quantity = '';
+          $scope.coupon_due_date = '';
+          $scope.coupon_description = '';
+          $scope.coupon_store_id = '';
+
+
+          // Borrando el valor del cupón
+          window.localStorage.setItem( 'barcode', JSON.stringify('Código'));
+
+          window.localStorage.setItem( 'cupones', JSON.stringify($scope.cupones));
+          //storeCupones();
+          alert("Cupón agregado correctamente");
+
+          window.location = "miscupones.html";
+        }else{
+          alert('Error: indique cantidad de cupones');
+        }
+      };
+
   $scope.cuponesValidos = function(){
     var misCupones = [];
 
@@ -301,8 +339,8 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngOpenFB'])
     //window.location = "cargando.html";
 
    //var link = 'http://icreastudio.com/couponthego/login.php';
-   // var link = 'http://jh4producciones.com.ve/CouponTheGo/pruebaSlim/autenticar';
-    var link = 'http://localhost/pruebaSlim/autenticar';
+    var link = 'http://jh4producciones.com.ve/CouponTheGo/pruebaSlim/autenticar';
+   // var link = 'http://localhost/pruebaSlim/autenticar';
 
 
     $http.post(link, {
@@ -310,7 +348,9 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngOpenFB'])
       "pass" : $scope.login.pass
       
     }).then(function (res){
-        if (res.data.success == 1){
+      console.log(res.data)
+      console.log(res.data.success)
+        if (res.data.success == true){
 
           alert(res.data.email);
           console.log("hola")
