@@ -66,12 +66,12 @@
         </div>
         <ion-list>
             <a href="infocupon.html">
-                <ion-item class="row" ng-repeat="cupon in cupones | orderBy : ordenCupones"
-                          ng-click="detallesCupon({{$index}})">
-                    <div class="col">{{cupon.name | limitTo:13}}</div>
-                    <div class="col red">- {{cupon.discount_v | currency : preferencias_money}}</div>
-                    <div class="col">{{cupon.due_date | date: shortDate}}</div>
-                    <div class="col">{{cupon.store_id | limitTo:13}}</div></a>
+                <ion-item class="row" ng-repeat="tarjeta in tarjetas "
+                          ng-click="">
+                    <div class="col">{{tarjeta.name | limitTo:13}}</div>
+                    <div class="col red">- {{tarjeta.discount_v | currency : preferencias_money}}</div>
+                    <div class="col">{{tarjeta.due_date | date: shortDate}}</div>
+                    <div class="col">{{tarjeta.store_id | limitTo:13}}</div></a>
             </ion-item>
         </ion-list>
 

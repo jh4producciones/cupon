@@ -27,6 +27,10 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngOpenFB'])
   var $c = window.localStorage.getItem( 'cupones' );
   $scope.cupones = $c != null ? JSON.parse($c) : [];
 
+      /** Lista de Tarjetas **/
+      var $t = window.localStorage.getItem( 'tarjetas' );
+      $scope.tarjetas = $t != null ? JSON.parse($t) : [];
+
 
   /** Lista de Articulos **/
   var $a = window.localStorage.getItem( 'articulos' );
@@ -123,39 +127,39 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngOpenFB'])
 
       $scope.agregarTarjetaLocal = function(){
 
-        if ($scope.coupon_ > 0){
-          $scope.cupones.push({
-            name : $scope.coupon_name,
-            code : $scope.coupon_code,
+        if ($scope.tarjeta_quantity > 0){
+          $scope.tarjetas.push({
+            name : $scope.tarjeta_name,
+            code : $scope.tarjeta_code,
             type_discount : '0',//$scope.coupon_type_discount,
-            discount_v : $scope.coupon_discount_v,
+            discount_v : $scope.tarjeta_discount_v,
             discount_p : '0',//$scope.coupon_discount_p,
-            quantity : $scope.coupon_quantity,
-            due_date : $scope.coupon_due_date,
-            description : $scope.coupon_description,
-            store_id : $scope.coupon_store_id,
-            type : $scope.coupon_type,
+            quantity : $scope.tarjeta_quantity,
+            due_date : $scope.tarjeta_due_date,
+            description : $scope.tarjeta_description,
+            store_id : $scope.tarjeta_store_id,
+            type : $scope.tarjeta_type,
             usado : false
           });
-          $scope.coupon_name = '';
-          $scope.coupon_code = '';
-          $scope.coupon_discount_p = '';
-          $scope.coupon_quantity = '';
-          $scope.coupon_due_date = '';
-          $scope.coupon_description = '';
-          $scope.coupon_store_id = '';
+          $scope.tarjeta_name = '';
+          $scope.tarjeta_code = '';
+          $scope.tarjeta_discount_p = '';
+          $scope.tarjeta_quantity = '';
+          $scope.tarjeta_due_date = '';
+          $scope.tarjeta_description = '';
+          $scope.tarjeta_store_id = '';
 
 
           // Borrando el valor del cupón
           window.localStorage.setItem( 'barcode', JSON.stringify('Código'));
 
-          window.localStorage.setItem( 'cupones', JSON.stringify($scope.cupones));
+          window.localStorage.setItem( 'tarjetas', JSON.stringify($scope.tarjetas));
           //storeCupones();
-          alert("Cupón agregado correctamente");
+          alert("Tarjeta agregada correctamente");
 
-          window.location = "miscupones.html";
+          window.location = "mistarjetas.html";
         }else{
-          alert('Error: indique cantidad de cupones');
+          alert('Error: indique cantidad de tarjetas');
         }
       };
 
@@ -336,11 +340,7 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngOpenFB'])
     console.log($scope.login.email);
     console.log($scope.login.pass);
 
-    //window.location = "cargando.html";
-
-   //var link = 'http://icreastudio.com/couponthego/login.php';
     var link = 'http://jh4producciones.com.ve/CouponTheGo/pruebaSlim/autenticar';
-   // var link = 'http://localhost/pruebaSlim/autenticar';
 
 
     $http.post(link, {
@@ -352,10 +352,9 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngOpenFB'])
       console.log(res.data.success)
         if (res.data.success == true){
 
-          alert(res.data.email);
-          console.log("hola")
+
           // Guardando el id del usuario
-         // window.localStorage.setItem( 'id_user', JSON.stringify(res.data.id));
+          window.localStorage.setItem( 'id_user', JSON.stringify(res.data.id));
           window.location = "principal.html";
         }
         else{
