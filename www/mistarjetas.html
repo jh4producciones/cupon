@@ -59,7 +59,7 @@
           <button class="button button-calm">Actualizar</button>
         </form>-->
         <div class="row">
-            <span class="col">Nombre</span>
+            <span class="col">Descripción</span>
             <span class="col">Descuento</span>
             <span class="col">Fecha</span>
             <span class="col">Tienda</span>
@@ -68,7 +68,7 @@
             <a href="infocupon.html">
                 <ion-item class="row" ng-repeat="tarjeta in tarjetas "
                           ng-click="">
-                    <div class="col">{{tarjeta.name | limitTo:13}}</div>
+                    <div class="col">{{tarjeta.description | limitTo:13}}</div>
                     <div class="col red">- {{tarjeta.discount_v | currency : preferencias_money}}</div>
                     <div class="col">{{tarjeta.due_date | date: shortDate}}</div>
                     <div class="col">{{tarjeta.store_id | limitTo:13}}</div></a>
