@@ -405,6 +405,26 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngOpenFB'])
       };
 
 
+//funcion q lista los paises
+   $scope.getPaisList = function() {
+
+   // $scope.model_progress = true;
+
+  //  console.log($scope.login.email);
+  //  console.log($scope.login.pass);
+
+    //window.location = "cargando.html";
+
+    var linkp = 'http://localhost/pruebaSlim/pais';
+    
+    $http.get(linkp).success(function(data, status, headers, config) {
+      $scope.Details = data;
+    }).
+    error(function(data, status, headers, config) {
+      // log error
+    });
+   
+  };
 
 
 
