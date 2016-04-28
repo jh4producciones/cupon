@@ -27,6 +27,10 @@
     <!-- your app's js -->
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
+      <script src="js/services.js"></script>
+	
+	
+	
   </head>
 
   <body ng-app="starter">
@@ -36,7 +40,22 @@
       </div>
      <ion-pane>
       <ion-content style="text-align: center;" ng-controller="AppCtrl">
-          <div class="item">
+          <br><br>
+            
+            <div class="list">
+                <a href="" ng-click="leerCodigo()" class="item item-icon-left" style="color:#FFF;">
+                    <p align="center" style="color:#000; font-size:19px;">
+                    <img src="img/NuevoCupon_1.png" class="icono">    
+                        Escanear cupón</p>
+                </a>
+
+                <a class="item item-icon-left" href="cupon.html" style="color:#FFF;">
+                    <p  align="center" style="color:#000; font-size:19px;">
+                    <img src="img/NuevoCupon_2.png" class="icono">    
+                        Añadir manualmente</p>
+                </a>
+            </div>
+		  <div class="item">
               <br><br>
                 <form ng-submit="agregarCuponLocal()">
                     
@@ -49,6 +68,7 @@
 						<p align="center" style="color:#000; font-size:13px;">
                         Escanear cupón</p>
 						</a> </span>
+						
 						<input type="text"
                                
                                name="code"
@@ -59,11 +79,10 @@
                                         </label>
 					
 
-               		<!-- Descuento del Cupon -->
 
-               		<!--<label class="item item-input item-select row">
+               		<label class="item item-input item-select row">
                         <span class="input-label col col-20"><img src="img/NuevoCuponManual_7.png" class="icononuevo"></span>
-                        <span class="input-label col col-20">Dscto: </span>
+                        <span class="input-label col col-20">Descuento: </span>
                         <select class="col col-40"
                         	name="type_discount" 
                         	ng-change="changeSelect()"
@@ -90,9 +109,9 @@
                                name="discount"
                                ng-model="data.discount"
                                class="cupon col col-20" required>
-                    </label>-->
+                    </label>
 
-                  <!-- Descuento del Cupon -->
+                  <!-- Descuento del Cupon 
                     <label class="item item-input row"
                       ng-show="show_value">
                         <span class="input-label col col-20"><img src="img/NuevoCuponManual_2.png" class="icononuevo"></span>
@@ -111,7 +130,7 @@
                                ng-model="coupon_discount_v"
                                class="cupon col" required>
 					    </span>
-                    </label>
+                    </label>-->
 
                   <!-- Cantidad de cupones -->
                     <label class="item item-input row"

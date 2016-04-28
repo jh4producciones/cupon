@@ -30,6 +30,7 @@
     <!-- your app's js -->
     <script src="js/app.js"></script>
       <script src="js/controllers.js"></script>
+      <script src="js/services.js"></script>
   </head>
 
   <body ng-app="starter" ng-controller="AppCtrl">
@@ -63,6 +64,11 @@
                 <button class="button button-index button-positive" ng-click="fbLogin()">
                     <i class="ion-social-facebook"> Login with Facebook</i>
                 </button>
+<div ng-controller="WelcomeCtrl">
+    <a class="facebook-sign-in button button-block" ng-click="facebookSignIn()">Login with Facebook</a>
+    </div>
+
+
 
 
             </label>

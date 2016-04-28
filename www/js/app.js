@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers','ngCordova', 'ngOpenFB'])
+angular.module('starter', ['ionic', 'starter.controllers','ngCordova', 'ngOpenFB','services'])
 
 .run(function($ionicPlatform, ngFB) {
       //init library ngFB con app id facebook
@@ -96,16 +96,25 @@ angular.module('starter', ['ionic', 'starter.controllers','ngCordova', 'ngOpenFB
       }
     }
 })
-      .state('app.profile', {
-        url: "/profile",
+
+      .state('app.welcome', {
+        url: '/welcome',
+        templateUrl: "views/welcome.html",
+        controller: 'WelcomeCtrl'
+      })
+
+
+      .state('app.home', {
+        url: "/home",
         views: {
           'menuContent': {
-            templateUrl: "templates/profile.html",
-            controller: "ProfileCtrl"
+            templateUrl: "views/home.html",
+            controller: 'HomeCtrl'
           }
         }
+      })
 
-      });
+  ;
 
 
   // if none of the above states are matched, use this as the fallback
