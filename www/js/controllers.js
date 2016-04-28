@@ -337,8 +337,7 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngOpenFB'])
 
     $scope.model_progress = true;
 
-    console.log($scope.login.email);
-    console.log($scope.login.pass);
+
 
     var link = 'http://jh4producciones.com.ve/CouponTheGo/pruebaSlim/autenticar';
 
